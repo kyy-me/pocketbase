@@ -1,4 +1,4 @@
-FROM alpine:latest as pb
+FROM alpine:3.19 as pb
 
 ARG PB_VERSION=0.22.14
 
@@ -16,7 +16,7 @@ RUN unzip /tmp/pb.zip -d /pb/
 # uncomment to copy the local pb_hooks dir into the image
 # COPY ./pb_hooks /pb/pb_hooks
 
-FROM alpine:latest
+FROM alpine:3.19
 COPY --from=pb /pb /pb
 
 EXPOSE 8080
